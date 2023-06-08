@@ -6,6 +6,7 @@ import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -16,9 +17,10 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ServicioProveedorTest 
+public class IntegracionServicioProveedorTest 
 {   
     //ATRIBUTO:
+    @Autowired
     private ProveedorServiceImpl servicio;
     
     //MÉTODOS DE TESTEO:
@@ -36,7 +38,7 @@ public class ServicioProveedorTest
     }
     
     @Test
-    public void getProveedoresPorCodigoClienteInexistenteTest() throws Exception
+    public void getProveedoresPorCodigoClienteInexistenteTest()
     {
         Long codCliente = 9L;
         List<Proveedor> listaProveedores = servicio.getProveedoresMedianteCodigoCliente(codCliente);
